@@ -1,18 +1,25 @@
+{% set name = 'pyraf' %}
+{% set version = '2.1.10' %}
+{% set number = '0' %}
+
 about:
     home: https://github.com/spacetelescope/pyraf
     license: BSD
     summary: pyraf
 build:
-    number: '0'
+    number: {{ number }}
 package:
-    name: pyraf
-    version: 2.1.10
+    name: {{ name }}
+    version: {{ version }}
 requirements:
     build:
     - d2to1
     - astropy >=1.1
     - ipython
-    - stsci.distutils
+    - matplotlib
+    - pyobjc-core [osx]
+    - pyobjc-framework-cocoa [osx]
+    - pyobjc-framework-quartz [osx]
     - stsci.tools
     - setuptools
     - numpy x.x
@@ -20,12 +27,15 @@ requirements:
     run:
     - astropy >=1.1
     - ipython
-    - stsci.distutils
+    - matplotlib
+    - pyobjc-core [osx]
+    - pyobjc-framework-cocoa [osx]
+    - pyobjc-framework-quartz [osx]
     - stsci.tools
     - numpy x.x
     - python x.x
 source:
-    git_tag: 2.1.10
+    git_tag: {{ version }}
     git_url: https://github.com/spacetelescope/pyraf
 test:
     commands:
