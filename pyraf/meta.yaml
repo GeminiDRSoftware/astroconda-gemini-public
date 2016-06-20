@@ -1,6 +1,6 @@
 {% set name = 'pyraf' %}
 {% set version = '2.1.10' %}
-{% set number = '0' %}
+{% set number = '1' %}
 
 about:
     home: https://github.com/spacetelescope/pyraf
@@ -17,9 +17,12 @@ requirements:
     - astropy >=1.1
     - ipython
     - matplotlib
-    - pyobjc-core [osx]
-    - pyobjc-framework-cocoa [osx]
-    - pyobjc-framework-quartz [osx]
+    - pyobjc-core ==3.0.4 [osx and py27]
+    - pyobjc-framework-cocoa ==3.0.4 [osx and py27]
+    - pyobjc-framework-quartz ==3.0.4 [osx and py27]
+    - pyobjc-core ==3.1.1 [osx and py3k]
+    - pyobjc-framework-cocoa ==3.1.1 [osx and py3k]
+    - pyobjc-framework-quartz ==3.1.1 [osx and py3k]
     - stsci.tools
     - setuptools
     - numpy x.x
@@ -28,9 +31,12 @@ requirements:
     - astropy >=1.1
     - ipython
     - matplotlib
-    - pyobjc-core [osx]
-    - pyobjc-framework-cocoa [osx]
-    - pyobjc-framework-quartz [osx]
+    - pyobjc-core ==3.0.4 [osx and py27]
+    - pyobjc-framework-cocoa ==3.0.4 [osx and py27]
+    - pyobjc-framework-quartz ==3.0.4 [osx and py27]
+    - pyobjc-core ==3.1.1 [osx and py3k]
+    - pyobjc-framework-cocoa ==3.1.1 [osx and py3k]
+    - pyobjc-framework-quartz ==3.1.1 [osx and py3k]
     - stsci.tools
     - numpy x.x
     - python x.x
