@@ -22,7 +22,7 @@ requirements:
     - pyobjc-framework-quartz >=3.0.4 [osx]
     - stsci.tools
     - setuptools
-    - numpy x.x
+    - numpy
     - python x.x
     run:
     - astropy >=1.1
@@ -32,7 +32,7 @@ requirements:
     - pyobjc-framework-cocoa >=3.0.4 [osx]
     - pyobjc-framework-quartz >=3.0.4 [osx]
     - stsci.tools
-    - numpy x.x
+    - numpy
     - python x.x
 source:
     git_tag: {{ version }}
