@@ -8,11 +8,11 @@ about:
     summary: Automatically Tuned Linear Algebra Software
 
 build:
-    number: {{number}}
+    number: {{ number }}
 
 package:
-    name: {{name}}
-    version: {{version}}
+    name: {{ name }}
+    version: {{ version }}
 
 source:
     fn: atlas3.10.2.tar.bz2

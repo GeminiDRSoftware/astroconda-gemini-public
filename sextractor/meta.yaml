@@ -2,7 +2,7 @@
 {% set version = '2.19.5' %}
 
 about:
-    home: http://www.astromatic.net/download/{{name}}
+    home: http://www.astromatic.net/download/{{ name }}
     license: GPL
     summary: |
         SExtractor is a program that builds a catalogue of objects from an astronomical image
@@ -12,8 +12,8 @@ build:
     number: '0' [osx]
 
 package:
-    name: {{name}}
-    version: {{version}}
+    name: {{ name }}
+    version: {{ version }}
 
 requirements:
     build:
@@ -27,5 +27,5 @@ requirements:
     - fftw
 
 source:
-    fn: {{name}}-{{version}}.tar.gz
-    url: http://www.astromatic.net/download/sextractor/{{name}}-{{version}}.tar.gz
+    fn: {{ name }}-{{ version }}.tar.gz
+    url: http://www.astromatic.net/download/sextractor/{{ name }}-{{ version }}.tar.gz
