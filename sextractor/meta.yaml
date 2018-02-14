@@ -1,5 +1,8 @@
 {% set name = 'sextractor' %}
 {% set version = '2.19.5' %}
+{% if version[0] == 'v' %}
+{%   set version = version[1:] %}
+{% endif %}
 
 about:
     home: http://www.astromatic.net/download/{{ name }}
@@ -17,15 +20,24 @@ package:
 
 requirements:
     build:
-    - atlas-generic [linux]
-    - autoconf [osx]
-    - m4 [osx]
+    - autoconf
+    - automake
     - fftw
+    - gcc
+    - libtool
+    - m4
+    - mkl-devel
     - pkgconfig
+
     run:
     - atlas-generic [linux]
     - fftw
 
 source:
     fn: {{ name }}-{{ version }}.tar.gz
-    url: http://www.astromatic.net/download/sextractor/{{ name }}-{{ version }}.tar.gz
+    url: https://github.com/astromatic/sextractor/archive/{{ version }}.tar.gz
+    md5: 8b5d957c80d93396503a8bf6698f000a
+
+test:
+  commands:
+    - sex --help
