@@ -3,7 +3,7 @@
 {% if version[0] == 'v' %}
 {%   set version = version[1:] %}
 {% endif %}
-{% set number = '2' %}
+{% set number = '3' %}
 
 about:
     home: https://github.com/spacetelescope/{{ name }}
@@ -21,6 +21,7 @@ package:
 requirements:
     build:
     - d2to1
+    - stsci.distutils
     - astropy >=1.1
     - ipython
     - matplotlib
