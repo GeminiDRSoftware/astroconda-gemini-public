@@ -1,8 +1,5 @@
 {% set name = 'sextractor' %}
 {% set version = '2.19.5' %}
-{% if version[0] == 'v' %}
-{%   set version = version[1:] %}
-{% endif %}
 
 about:
     home: http://www.astromatic.net/download/{{ name }}

@@ -1,8 +1,5 @@
 {% set name = 'ds9' %}
 {% set version = '7.5' %}
-{% if version[0] == 'v' %}
-{%   set version = version[1:] %}
-{% endif %}
 {% set number = '1' %}
 
 about:
