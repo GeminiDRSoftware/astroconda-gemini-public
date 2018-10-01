@@ -1,6 +1,6 @@
 {% set name = 'ds9' %}
-{% set version = '7.5' %}
-{% set number = '1' %}
+{% set version = '7.6' %}
+{% set number = '0' %}
 
 about:
     home: http://ds9.si.edu/download/source/
@@ -22,4 +22,4 @@ requirements:
 source:
     fn: {{ name }}.{{ version }}.tar.gz
     url: http://ds9.si.edu/download/source/{{ name }}.{{ version }}.tar.gz
-    md5: 5684be5f6123f3d0426ea3db46466cb4
+    md5: b700dd815fe1f7fa93e3e3bba1132ca7
