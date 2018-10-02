@@ -18,6 +18,8 @@ package:
 requirements:
     build:
     - gcc >=4.6 [osx]
+    - autoconf
+    - m4
 
 source:
     fn: {{ name }}.{{ version }}.tar.gz
