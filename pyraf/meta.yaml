@@ -1,7 +1,7 @@
 {% set name = 'pyraf' %}
 {% set version = '2.2.1' %}
 {% set tag = 'v' + version %}
-{% set number = '0' %}
+{% set number = '1' %}
 
 about:
     home: https://github.com/iraf-community/{{ name }}
@@ -17,28 +17,35 @@ package:
     version: {{ version }}
 
 requirements:
-    build:
+    host:
+    - python
     - astropy >=1.1
     - configobj >=5
     - ipython
+    # - libffi >=3.3,<3.4a0 [osx]
     - matplotlib
-    - pyobjc-core >=3.0.4 [osx]
-    - pyobjc-framework-cocoa >=3.0.4 [osx]
-    - pyobjc-framework-quartz >=3.0.4 [osx]
+    - numpy
+    - pyobjc-core >=7.2,<7.3 [osx]
+    - pyobjc-framework-cocoa >=7.2,<7.3 [osx]
+    - pyobjc-framework-quartz >=7.2,<7.3 [osx]
     - setuptools
     - setuptools_scm
-    - numpy {{ numpy }}
-    - python {{ python }}
     run:
+    - python
     - astropy >=1.1
     - configobj >=5
     - ipython
+    # This dependency is missing from pyobjc-core in conda-forge, resulting in
+    # a broken objc unless the correct Python patch level is installed, but
+    # adding it here caused other problems, including the old Astroconda pyraf
+    # build (which is even more broken with conda-forge) being picked up with
+    # the latest Python and cases of builds failing due to conda issue 11442.
+    # - libffi >=3.3,<3.4a0 [osx] # somehow conflicts due to 
     - matplotlib
-    - pyobjc-core >=3.0.4 [osx]
-    - pyobjc-framework-cocoa >=3.0.4 [osx]
-    - pyobjc-framework-quartz >=3.0.4 [osx]
     - numpy
-    - python
+    - pyobjc-core >=7.2,<7.3 [osx]
+    - pyobjc-framework-cocoa >=7.2,<7.3 [osx]
+    - pyobjc-framework-quartz >=7.2,<7.3 [osx]
 
 source:
     git_tag: {{ tag }}

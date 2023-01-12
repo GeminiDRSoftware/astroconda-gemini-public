@@ -1,5 +1,5 @@
 if [[ `uname -s` == "Darwin" ]]; then
-    export CFLAGS="-I/opt/X11/include"
+    export CFLAGS="-I/opt/X11/include -isysroot ${CONDA_BUILD_SYSROOT}"
     export LDFLAGS="-L/opt/X11/lib"
 fi
 
