@@ -40,7 +40,7 @@ requirements:
     # adding it here caused other problems, including the old Astroconda pyraf
     # build (which is even more broken with conda-forge) being picked up with
     # the latest Python and cases of builds failing due to conda issue 11442.
-    # - libffi >=3.3,<3.4a0 [osx] # somehow conflicts due to 
+    # - libffi >=3.3,<3.4a0 [osx]
     - matplotlib
     - numpy
     - pyobjc-core >=7.2,<7.3 [osx]
