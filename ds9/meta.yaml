@@ -1,5 +1,5 @@
 {% set name = 'ds9' %}
-{% set version = '8.1' %}
+{% set version = '8.4.1' %}
 {% set number = '0' %}
 
 about:
@@ -19,11 +19,28 @@ requirements:
     build:
       - autoconf
       - m4
-      - openssl >=1.1
+      - pkg-config
+    host:
+      - libxml2
+      - xorg-libx11
+      - xorg-libxcursor   # [linux]
+      - xorg-libxfixes    # [linux]
+      - xorg-libxft
+      - zlib
     run:
-      - openssl >=1.1
+      - libxml2
+      - libzlib
+      - xorg-libx11
+      - xorg-libxcursor   # [linux]
+      - xorg-libxfixes    # [linux]
+      - xorg-libxft
 
 source:
     fn: {{ name }}.{{ version }}.tar.gz
-    url: http://ds9.si.edu/download/source/{{ name }}.{{ version }}.tar.gz
-    md5: d9b3c43c9375328e4872b7eefb0f86bc
+    url: https://github.com/SAOImageDS9/SAOImageDS9/archive/refs/tags/v{{ version }}.tar.gz
+    md5: d47bfa849596e76e69838050f09ba9ad
+    patches:
+      - configure.patch
+      - Makefile.in.patch
+      - make.include.patch
+      - libtiff_configure.patch

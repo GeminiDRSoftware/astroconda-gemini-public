@@ -1,0 +1,27 @@
+--- SAOImageDS9-8.4.1/unix/Makefile.in	2022-12-16 18:30:11.000000000 -0400
++++ patchdir/unix/Makefile.in	2023-03-15 17:37:29.000000000 -0400
+@@ -8,6 +8,8 @@
+ datarootdir	= @datarootdir@
+ datadir		= @datadir@
+ mandir		= @mandir@
++x_includes	= @x_includes@
++x_libraries	= @x_libraries@
+ 
+ OS		= @OS@
+ ARCH		= @ARCH@
+@@ -22,6 +24,7 @@
+ WITHTCL 	= --with-tcl=$(prefix)/tcl$(TCL_VERSION)/unix
+ WITHTK  	= --with-tk=$(prefix)/tk$(TCL_VERSION)/unix $(WITHTCL)
+ CACHE		= --config-cache --cache-file=$(prefix)/config.cache
++WITHX11         = --x-includes=$(x_includes) --x-libraries=$(x_libraries)
+ 
+ #--------------------------build
+ 
+@@ -62,6 +65,7 @@
+ 	cd tk$(TCL_VERSION)/unix; \
+ 	./configure \
+ 	$(TKFLAGS) \
++	$(WITHX11) \
+ 	$(PREFIX) \
+ 	--disable-shared --enable-symbols \
+ 	$(CACHE)

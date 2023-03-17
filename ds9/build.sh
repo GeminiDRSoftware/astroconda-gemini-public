@@ -14,7 +14,10 @@ exit 1
 ;;
 esac
 
-unix/configure TKFLAGS="--disable-xss"  # not all machines have libXss
+# Patches are applied in meta.yaml so everything can be built against X11 libs
+# from the conda env and the latest ds9 Makefile won't override TKFLAGS.
+
+unix/configure --x-includes=${PREFIX}/include --x-libraries=${PREFIX}/lib TKFLAGS="--disable-xss"  # not all machines have libXss
 make
 mkdir -p $PREFIX/bin
 cp -a bin/ds9* bin/x* $PREFIX/bin

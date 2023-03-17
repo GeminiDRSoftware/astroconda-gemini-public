@@ -1,0 +1,12 @@
+--- SAOImageDS9-8.4.1/tkimg/libtiff/configure	2022-12-16 18:30:11.000000000 -0400
++++ patchdir/tkimg/libtiff/configure	2023-03-15 13:53:00.000000000 -0400
+@@ -5250,7 +5250,8 @@
+ fi
+ ${srcdir}/../compat/libtiff/configure --disable-zlib --disable-zstd --disable-lzma \
+ 	--disable-pixarlog --disable-jpeg --disable-jbig --disable-webp \
+-	"--with-CC=$TIFFCC" $TIFFHOST
++	"--with-CC=$TIFFCC" \
++        "--x-includes=${x_includes}" "--x-libraries=${x_libraries}" $TIFFHOST
+ mv -f tifftcl_confdefs.h confdefs.h
+ 
+ #-----------------------------------------------------------------------

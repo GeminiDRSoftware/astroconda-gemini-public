@@ -1,0 +1,22 @@
+--- SAOImageDS9-8.4.1/unix/configure	2022-12-16 18:30:11.000000000 -0400
++++ patchdir/unix/configure	2023-03-15 17:19:02.000000000 -0400
+@@ -736,7 +736,9 @@
+ PACKAGE_TARNAME
+ PACKAGE_NAME
+ PATH_SEPARATOR
+-SHELL'
++SHELL
++x_includes
++x_libraries'
+ ac_subst_files=''
+ ac_user_opts='
+ enable_option_checking
+@@ -7673,7 +7675,7 @@
+ 
+ case $system in
+     Darwin* )
+-	TKFLAGS="--disable-corefoundation"
++	TKFLAGS="${TKFLAGS} --disable-corefoundation"
+ 
+ 
+ 	case `arch` in
