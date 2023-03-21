@@ -1,5 +1,5 @@
 {% set name = 'ds9' %}
-{% set version = '8.4.1' %}
+{% set version = '8.2.1' %}
 {% set number = '0' %}
 
 about:
@@ -38,7 +38,7 @@ requirements:
 source:
     fn: {{ name }}.{{ version }}.tar.gz
     url: https://github.com/SAOImageDS9/SAOImageDS9/archive/refs/tags/v{{ version }}.tar.gz
-    md5: d47bfa849596e76e69838050f09ba9ad
+    md5: fdac9f96738a83f823a61e3ec887676f
     patches:
       - configure.patch
       - Makefile.in.patch
