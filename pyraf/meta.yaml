@@ -1,7 +1,7 @@
 {% set name = 'pyraf' %}
 {% set version = '2.2.1' %}
 {% set tag = 'v' + version %}
-{% set number = '1' %}
+{% set number = '2' %}
 
 about:
     home: https://github.com/iraf-community/{{ name }}
@@ -22,14 +22,17 @@ requirements:
     - astropy >=1.1
     - configobj >=5
     - ipython
-    # - libffi >=3.3,<3.4a0 [osx]
+  # - libffi >=3.3,<3.4a0  # [osx]
     - matplotlib
-    - numpy
-    - pyobjc-core >=7.2,<7.3 [osx]
-    - pyobjc-framework-cocoa >=7.2,<7.3 [osx]
-    - pyobjc-framework-quartz >=7.2,<7.3 [osx]
+    - numpy >=1.17  # constraint avoids conda issue 11442 with conda-forge
+    - pyobjc-core >=7.2,<7.3  # [osx]
+    - pyobjc-framework-cocoa >=7.2,<7.3  # [osx]
+    - pyobjc-framework-quartz >=7.2,<7.3  # [osx]
     - setuptools
     - setuptools_scm
+    - xorg-libx11  # [linux]
+    # hack to ensure pyraf is installable with ds9, since this pins libX11:
+    - xorg-libxft  # [linux]
     run:
     - python
     - astropy >=1.1
@@ -42,10 +45,11 @@ requirements:
     # the latest Python and cases of builds failing due to conda issue 11442.
     # - libffi >=3.3,<3.4a0 [osx]
     - matplotlib
-    - numpy
-    - pyobjc-core >=7.2,<7.3 [osx]
-    - pyobjc-framework-cocoa >=7.2,<7.3 [osx]
-    - pyobjc-framework-quartz >=7.2,<7.3 [osx]
+    - numpy >=1.17
+    - pyobjc-core >=7.2,<7.3  # [osx]
+    - pyobjc-framework-cocoa >=7.2,<7.3  # [osx]
+    - pyobjc-framework-quartz >=7.2,<7.3  # [osx]
+    - xorg-libx11  # [linux]
 
 source:
     git_tag: {{ tag }}
