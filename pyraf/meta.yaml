@@ -24,7 +24,11 @@ requirements:
     - ipython
   # - libffi >=3.3,<3.4a0  # [osx]
     - matplotlib
-    - numpy >=1.17  # constraint avoids conda issue 11442 with conda-forge
+    # numpy constraint avoids conda issue 11442 with conda-forge:
+    - numpy 1.17 # [py<39]
+    - numpy 1.19 # [py==39]
+    - numpy 1.21 # [py==310]
+    - numpy 1.23 # [py>=311]
     - pyobjc-core >=7.2,<7.3  # [osx]
     - pyobjc-framework-cocoa >=7.2,<7.3  # [osx]
     - pyobjc-framework-quartz >=7.2,<7.3  # [osx]
@@ -45,7 +49,7 @@ requirements:
     # the latest Python and cases of builds failing due to conda issue 11442.
     # - libffi >=3.3,<3.4a0 [osx]
     - matplotlib
-    - numpy >=1.17
+    - {{ pin_compatible('numpy') }}
     - pyobjc-core >=7.2,<7.3  # [osx]
     - pyobjc-framework-cocoa >=7.2,<7.3  # [osx]
     - pyobjc-framework-quartz >=7.2,<7.3  # [osx]
