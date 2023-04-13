@@ -1,0 +1,40 @@
+{% set name = 'sextractor' %}
+{% set version = '2.19.5' %}
+
+about:
+    home: http://www.astromatic.net/download/{{ name }}
+    license: GPL
+    summary: |
+        SExtractor is a program that builds a catalogue of objects from an astronomical image
+
+build:
+    number: '1' [linux]
+    number: '0' [osx]
+
+package:
+    name: {{ name }}
+    version: {{ version }}
+
+requirements:
+    build:
+    - autoconf
+    - automake
+    - fftw
+    - gcc
+    - libtool
+    - m4
+    - mkl-devel
+    - pkgconfig
+
+    run:
+    - atlas-generic [linux]
+    - fftw
+
+source:
+    fn: {{ name }}-{{ version }}.tar.gz
+    url: https://github.com/astromatic/sextractor/archive/{{ version }}.tar.gz
+    md5: 8b5d957c80d93396503a8bf6698f000a
+
+test:
+  commands:
+    - sex --help

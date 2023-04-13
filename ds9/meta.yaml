@@ -1,0 +1,46 @@
+{% set name = 'ds9' %}
+{% set version = '8.2.1' %}
+{% set number = '0' %}
+
+about:
+    home: http://ds9.si.edu/download/source/
+    license: GPL,LGPL,BSD
+    summary: |
+        SAOImage DS9 is an astronomical imaging and data visualization application
+
+build:
+    number: {{ number }}
+
+package:
+    name: {{ name }}
+    version: {{ version }}
+
+requirements:
+    build:
+      - autoconf
+      - m4
+      - pkg-config
+    host:
+      - libxml2
+      - xorg-libx11
+      - xorg-libxcursor   # [linux]
+      - xorg-libxfixes    # [linux]
+      - xorg-libxft
+      - zlib
+    run:
+      - libxml2
+      - libzlib
+      - xorg-libx11
+      - xorg-libxcursor   # [linux]
+      - xorg-libxfixes    # [linux]
+      - xorg-libxft
+
+source:
+    fn: {{ name }}.{{ version }}.tar.gz
+    url: https://github.com/SAOImageDS9/SAOImageDS9/archive/refs/tags/v{{ version }}.tar.gz
+    md5: fdac9f96738a83f823a61e3ec887676f
+    patches:
+      - configure.patch
+      - Makefile.in.patch
+      - make.include.patch
+      - libtiff_configure.patch

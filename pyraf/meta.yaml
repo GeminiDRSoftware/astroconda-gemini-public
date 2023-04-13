@@ -1,0 +1,64 @@
+{% set name = 'pyraf' %}
+{% set version = '2.2.1' %}
+{% set tag = 'v' + version %}
+{% set number = '2' %}
+
+about:
+    home: https://github.com/iraf-community/{{ name }}
+    license: BSD
+    summary: |
+        Provides a Pythonic interface to IRAF
+
+build:
+    number: {{ number }}
+
+package:
+    name: {{ name }}
+    version: {{ version }}
+
+requirements:
+    host:
+    - python
+    - astropy >=1.1
+    - configobj >=5
+    - ipython
+  # - libffi >=3.3,<3.4a0  # [osx]
+    - matplotlib
+    # numpy constraint avoids conda issue 11442 with conda-forge:
+    - numpy 1.17 # [py<39]
+    - numpy 1.19 # [py==39]
+    - numpy 1.21 # [py==310]
+    - numpy 1.23 # [py>=311]
+    - pyobjc-core >=7.2,<7.3  # [osx]
+    - pyobjc-framework-cocoa >=7.2,<7.3  # [osx]
+    - pyobjc-framework-quartz >=7.2,<7.3  # [osx]
+    - setuptools
+    - setuptools_scm
+    - xorg-libx11  # [linux]
+    # hack to ensure pyraf is installable with ds9, since this pins libX11:
+    - xorg-libxft  # [linux]
+    run:
+    - python
+    - astropy >=1.1
+    - configobj >=5
+    - ipython
+    # This dependency is missing from pyobjc-core in conda-forge, resulting in
+    # a broken objc unless the correct Python patch level is installed, but
+    # adding it here caused other problems, including the old Astroconda pyraf
+    # build (which is even more broken with conda-forge) being picked up with
+    # the latest Python and cases of builds failing due to conda issue 11442.
+    # - libffi >=3.3,<3.4a0 [osx]
+    - matplotlib
+    - {{ pin_compatible('numpy') }}
+    - pyobjc-core >=7.2,<7.3  # [osx]
+    - pyobjc-framework-cocoa >=7.2,<7.3  # [osx]
+    - pyobjc-framework-quartz >=7.2,<7.3  # [osx]
+    - xorg-libx11  # [linux]
+
+source:
+    git_tag: {{ tag }}
+    git_url: https://github.com/iraf-community/{{ name }}.git
+
+test:
+    commands:
+    - pyraf --help
