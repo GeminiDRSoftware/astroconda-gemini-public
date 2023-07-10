@@ -1,6 +1,6 @@
 {% set version = '3.1.0' %}
 {% set tag = 'v' + version %}
-{% set number = '0' %}
+{% set number = '1' %}
 
 package:
     name: dragons
@@ -30,10 +30,10 @@ requirements:
     run:
     - python
     - asdf >=2.7,!=2.10.0
-    - astropy >=4.3
+    - astropy >=4.3,<5.3        # v5.3 nddata breaks Astrodata in 3.1
     - astroquery >=0.4
     - astroscrappy >=1.1
-    - bokeh >=2.3
+    - bokeh >=2.3,<3.0.0a0      # new v3 API breaks DRAGONS 3.1 interaction
     - bottleneck >=1.2          # opt but needed for astropy.stats performance
     - fitsverify >=4.17
     - future >=0.17
