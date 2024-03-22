@@ -1,4 +1,4 @@
-{% set version = '1.0.27' %}
+{% set version = '1.0.29' %}
 {% set tag = 'v' + version %}
 {% set number = '0' %}
 
