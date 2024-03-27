@@ -6,7 +6,7 @@ package:
     name: gemini_calmgr
     version: {{ version }}
 source:
-    git_url: git@github.com:GeminiDRSoftware/GeminiCalMgr.git
+    git_url: https://github.com/GeminiDRSoftware/GeminiCalMgr.git
     git_tag: {{ tag }}
 build:
     number: {{ number }}
@@ -24,7 +24,7 @@ requirements:
     - setuptools
     run:
     - python >=3.7
-    - dragons >=3.1.0
-    - gemini_obs_db >=1.0
+    - dragons >=3.2.0
+    - gemini_obs_db >=1.0.29
     - sqlalchemy >=1.3,<2.0.0a0  # code not yet updated for new v2 API
 

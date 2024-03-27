@@ -6,7 +6,7 @@ package:
     name: dragons
     version: {{ version }}
 source:
-    git_url: git@github.com:GeminiDRSoftware/DRAGONS.git
+    git_url: https://github.com/GeminiDRSoftware/DRAGONS.git
     git_tag: {{ tag }}
 build:
     number: {{ number }}
