@@ -13,11 +13,11 @@ build:
     - bin/ac_update_extern_pkg
 package:
     name: iraf.gemini
-    version: "1.16"
+    version: "1.16.1"
 source:
-    fn: gemini_v116_src.tar.gz
-    # url: http://astroconda-source:4440/gemini_v116_1_src.tar.gz
-    url: file:///rtfperm/ac_sources/gemini_v116_1_src.tar.gz
+    fn: gemini_v1161_src.tar.gz
+    # url: http://astroconda-source:4440/gemini_v1161_src.tar.gz
+    url: file:///rtfperm/ac_sources/gemini_v1161_src.tar.gz
     #patches:
     #- ac.iraf.gemini.patch
 requirements:
