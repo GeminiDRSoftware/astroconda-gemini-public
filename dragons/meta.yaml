@@ -1,6 +1,6 @@
-{% set version = '3.2.2' %}
+{% set version = '3.2.3' %}
 {% set tag = 'v' + version %}
-{% set number = '1' %}
+{% set number = '0' %}
 
 package:
     name: dragons
@@ -30,7 +30,7 @@ requirements:
     run:
     - python
     - asdf >=2.7,!=2.10.0
-    - astropy >=4.3,!=5.3.0     # v5.3 nddata broke AstroData (fixed in 5.3.1)
+    - astropy >=4.3,!=5.3.0,!=6.1.5,!=6.1.6  # v6.1.5 sigma clip problem 17401
     - astroquery >=0.4
     - astroscrappy >=1.1
     - bokeh >=3.0
