@@ -1,0 +1,31 @@
+{% set version = '3.4.0' %}
+{% set tag = 'v' + version %}
+{% set number = '0' %}
+
+package:
+    name: fits_storage
+    version: {{ version }}
+source:
+    git_url: https://github.com/GeminiDRSoftware/FitsStorage.git
+    git_tag: {{ tag }}
+build:
+    number: {{ number }}
+    noarch: python
+    script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
+about:
+    home: http://www.gemini.edu/sciops/data-and-results/processing-software
+    license: BSD
+    license_file: LICENSE
+    summary: Local calibration manager for use with DRAGONS
+requirements:
+    build:
+    - python >=3.12
+    - pip
+    - setuptools
+    run:
+    - python >=3.12
+    - astropy >=6.0
+    - dragons >=4.0
+    - numpy >=1.24
+    - python-dateutil >=2.8
+    - sqlalchemy >=2.0
