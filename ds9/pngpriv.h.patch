@@ -1,0 +1,25 @@
+--- SAOImageDS9-8.6/tkimg/compat/libpng/pngpriv.h	2024-08-09 12:57:52.000000000 -0400
++++ patchdir/tkimg/compat/libpng/pngpriv.h	2025-05-05 16:19:24.000000000 -0400
+@@ -517,18 +517,10 @@
+     */
+ #  include <float.h>
+ 
+-#  if (defined(__MWERKS__) && defined(macintosh)) || defined(applec) || \
+-    defined(THINK_C) || defined(__SC__) || defined(TARGET_OS_MAC)
+-   /* We need to check that <math.h> hasn't already been included earlier
+-    * as it seems it doesn't agree with <fp.h>, yet we should really use
+-    * <fp.h> if possible.
+-    */
+-#    if !defined(__MATH_H__) && !defined(__MATH_H) && !defined(__cmath__)
+-#      include <fp.h>
+-#    endif
+-#  else
+-#    include <math.h>
+-#  endif
++ /* Don't have <fp.h> on MacOS build platform for conda, so stick to <math.h>:
++  */
++#  include <math.h>
++
+ #  if defined(_AMIGA) && defined(__SASC) && defined(_M68881)
+    /* Amiga SAS/C: We must include builtin FPU functions when compiling using
+     * MATH=68881

@@ -1,6 +1,6 @@
 {% set name = 'ds9' %}
-{% set version = '8.2.1' %}
-{% set number = '2' %}
+{% set version = '8.6' %}
+{% set number = '0' %}
 
 about:
     home: http://ds9.si.edu/download/source/
@@ -17,30 +17,33 @@ package:
 
 requirements:
     build:
+      - {{ compiler('c') }}
+      - {{ stdlib('c') }}
+      - {{ compiler('cxx') }}
       - autoconf
       - m4
       - pkg-config
     host:
+      - expat
+      - libiconv
+      - liblzma-devel
       - libxml2
+      - libxslt
       - xorg-libx11
       - xorg-libxcursor   # [linux]
       - xorg-libxfixes    # [linux]
       - xorg-libxft
+      - xorg-xorgproto
       - zlib
-    run:
-      - libxml2
-      - libzlib
-      - xorg-libx11
-      - xorg-libxcursor   # [linux]
-      - xorg-libxfixes    # [linux]
-      - xorg-libxft
 
 source:
     fn: {{ name }}.{{ version }}.tar.gz
     url: https://github.com/SAOImageDS9/SAOImageDS9/archive/refs/tags/v{{ version }}.tar.gz
-    md5: fdac9f96738a83f823a61e3ec887676f
+    md5: 7d0dd2e41d52c21270d7d3fae747ed8f
     patches:
       - configure.patch
       - Makefile.in.patch
       - make.include.patch
       - libtiff_configure.patch
+      - pngpriv.h.patch
+      - zutil.h.patch
