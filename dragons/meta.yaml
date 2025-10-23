@@ -1,4 +1,4 @@
-{% set version = '4.0.0' %}
+{% set version = '4.1.0' %}
 {% set tag = 'v' + version %}
 {% set number = '0' %}
 
@@ -35,7 +35,7 @@ requirements:
     - astroscrappy >=1.1
     - bokeh >=3.0
     - bottleneck >=1.2          # opt but needed for astropy.stats performance
-    - fits_storage >=3.4.0
+    - fits_storage >=3.5
     - fitsverify >=4.17
     - future >=0.17
     - gwcs >=0.19,<=0.22.1
