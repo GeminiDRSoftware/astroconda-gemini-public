@@ -1,6 +1,6 @@
 {% set name = 'ds9' %}
 {% set version = '8.6' %}
-{% set number = '0' %}
+{% set number = '1' %}
 
 about:
     home: http://ds9.si.edu/download/source/
@@ -10,6 +10,10 @@ about:
 
 build:
     number: {{ number }}
+    ignore_run_exports:
+    - libexpat # }
+    - libxml2  # } these are only *direct* deps at build time
+    - libxslt  # }
 
 package:
     name: {{ name }}
@@ -25,21 +29,23 @@ requirements:
       - pkg-config
     host:
       - expat
+      - fontconfig
+      - freetype
       - libiconv
-      - liblzma-devel
-      - libxml2
+      - libxml2-devel
       - libxslt
       - xorg-libx11
-      - xorg-libxcursor   # [linux]
-      - xorg-libxfixes    # [linux]
       - xorg-libxft
       - xorg-xorgproto
       - zlib
+    run:
+      - xorg-libxcursor   # [linux]
+      - xorg-libxfixes    # [linux]
 
 source:
     fn: {{ name }}.{{ version }}.tar.gz
     url: https://github.com/SAOImageDS9/SAOImageDS9/archive/refs/tags/v{{ version }}.tar.gz
-    md5: 7d0dd2e41d52c21270d7d3fae747ed8f
+    sha256: 41a3ea004a691b73fdebdfdd6b821d2620885b27ec3d157f7a79ae941187d843
     patches:
       - configure.patch
       - Makefile.in.patch
