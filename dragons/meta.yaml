@@ -1,6 +1,6 @@
 {% set version = '4.2.0' %}
 {% set tag = 'v' + version %}
-{% set number = '0' %}
+{% set number = '1' %}
 
 package:
     name: dragons
@@ -20,7 +20,10 @@ about:
     summary: The main DRAGONS package for processing Gemini data
 requirements:
     build:
-    - python
+    - python {{ python }}
+ #  - {{ compiler('c') }}
+ #  - {{ stdlib('c') }}
+    - python-gil  # [py >= 313]
     - pip
     - setuptools
     - cython >=0.29
@@ -28,7 +31,8 @@ requirements:
     - sphinx >=1.2.2
     - sphinx_rtd_theme >=0.3.0
     run:
-    - python
+    - python {{ python }}
+    - python-gil  # [py >= 313]
     - asdf >=2.15
     - astropy >=6.0,!=6.1.5,!=6.1.6  # v6.1.5 sigma clip problem 17401
     - astroscrappy >=1.1
