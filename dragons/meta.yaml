@@ -1,4 +1,4 @@
-{% set version = '4.2.0' %}
+{% set version = '4.2.1' %}
 {% set tag = 'v' + version %}
 {% set number = '0' %}
 
@@ -30,7 +30,7 @@ requirements:
     run:
     - python
     - asdf >=2.15
-    - astropy >=6.0,!=6.1.5,!=6.1.6  # v6.1.5 sigma clip problem 17401
+    - astropy >=7.1.2           # need nddata PR #18392 fixes for NumPy 2
     - astroscrappy >=1.1
     - bokeh >=3.0
     - bottleneck >=1.2          # opt but needed for astropy.stats performance
