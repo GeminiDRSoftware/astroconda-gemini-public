@@ -16,13 +16,6 @@ target_platform:
     - linux-64                      # [linux]
     - osx-64                        # [osx]
 
-# c_compiler_version:
-#     - '15'                          # [linux]
-#     - '21'                          # [osx]
-# cxx_compiler_version:
-#     - '15'                          # [linux]
-#     - '21'                          # [osx]
-
 MACOSX_DEPLOYMENT_TARGET:
     - '11.1'                        # [osx]
 MACOSX_SDK_VERSION:
