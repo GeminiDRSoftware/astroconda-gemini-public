@@ -1,0 +1,33 @@
+c_compiler:
+    - gcc                           # [linux]
+    - clang                         # [osx]
+c_stdlib:
+    - sysroot                       # [linux]
+    - macosx_deployment_target      # [osx]
+c_stdlib_version:
+    # Baseline is still glibc 2.17 on Linux, but must now *build* on 2.28
+    # (RHE 8+) for the latest compilers to work:
+    - '2.17'                        # [linux]
+    - '11.0'                        # [osx]
+cxx_compiler:
+    - gxx                           # [linux]
+    - clangxx                       # [osx]
+target_platform:
+    - linux-64                      # [linux]
+    - osx-64                        # [osx]
+
+# c_compiler_version:
+#     - '15'                          # [linux]
+#     - '21'                          # [osx]
+# cxx_compiler_version:
+#     - '15'                          # [linux]
+#     - '21'                          # [osx]
+
+MACOSX_DEPLOYMENT_TARGET:
+    - '11.1'                        # [osx]
+MACOSX_SDK_VERSION:
+    - '11.1'                        # [osx]
+
+CONDA_BUILD_SYSROOT:
+  - "/rtfperm/SDKs/MacOSX11.1.sdk"  # [osx]
+
