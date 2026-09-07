@@ -1,29 +1,40 @@
+{% set version = '0.12' %}
+{% set tag = 'v' + version %}
+{% set number = '0' %}
+
+package:
+    name: pyfu
+    version: {{ version }}
+
+source:
+    git_tag: {{ tag }}
+    git_url: https://github.com/jehturner/pyfu.git
+
 build:
-    number: '0'
+    number: {{ number }}
     # noarch: python  # doesn't work, due to pythonN.N symlink
     # These must be copied from astroconda-iraf-helpers, as conda unhelpfully
     # disallows the post-install step from depending on other packages:
     always_include_files:
     - bin/ac_config_iraf_pkg
     - bin/ac_update_extern_pkg
-package:
-    name: pyfu
-    version: "0.11"
-source:
-    svn_url: http://scisoft.gemini.edu/svn/ifudr/pyfu/0.11
+
 about:
     home: http://drforum.gemini.edu/topic/pyfu-datacube-mosaicking-package
     license: BSD
     license_file: LICENSE
     summary: IFU datacube mosaicking package for PyRAF and Python
+
 requirements:
-    build:
-    - astroconda-iraf-helpers
+    host:
     - python
+    - pip
+    - setuptools
+    - astroconda-iraf-helpers
     run:
     - python >=3.6
-    - numpy >=1.9               # (use same version as disco-stu)
-    - scipy >=0.14              # (to match the NumPy requirement)
+    - numpy >=1.9
+    - scipy >=0.14
     - astropy >=3.1
     # PyRAF is an optional dependency if the IRAF interface is used but is not
     # needed by the Python interface so don't require it here, as that would
