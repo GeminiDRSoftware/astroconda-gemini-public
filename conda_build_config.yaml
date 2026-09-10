@@ -17,9 +17,9 @@ target_platform:
     - osx-64                        # [osx]
 
 MACOSX_DEPLOYMENT_TARGET:
-    - '11.1'                        # [osx]
+    - '11.0'                        # [osx]
 MACOSX_SDK_VERSION:
-    - '11.1'                        # [osx]
+    - '11.0'                        # [osx]
 
 CONDA_BUILD_SYSROOT:
   - "/rtfperm/SDKs/MacOSX11.1.sdk"  # [osx]
