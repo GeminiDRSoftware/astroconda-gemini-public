@@ -12,6 +12,12 @@ c_stdlib_version:
 cxx_compiler:
     - gxx                           # [linux]
     - clangxx                       # [osx]
+c_compiler_version:
+    - '15'                          # [linux]
+    - '21'                          # [osx]
+cxx_compiler_version:
+    - '15'                          # [linux]
+    - '21'                          # [osx]
 target_platform:
     - linux-64                      # [linux]
     - osx-64                        # [osx]
