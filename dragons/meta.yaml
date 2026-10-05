@@ -1,6 +1,6 @@
 {% set version = '4.2.2' %}
 {% set tag = 'v' + version %}
-{% set number = '0' %}
+{% set number = '1' %}
 
 package:
     name: dragons
@@ -20,13 +20,20 @@ about:
     summary: The main DRAGONS package for processing Gemini data
 requirements:
     build:
-    - python
-    - pip
-    - setuptools
-    - cython >=0.29
+    - {{ compiler('c') }}
+    - {{ stdlib('c') }}
+    - python                             # [build_platform != target_platform]
+    - cross-python_{{ target_platform }} # [build_platform != target_platform]
+    - cython >=0.29                      # [build_platform != target_platform]
     - docutils >=0.15
     - sphinx >=1.2.2
     - sphinx_rtd_theme >=0.3.0
+    host:
+    - python
+    - python-gil                         # [py>=313]
+    - pip
+    - setuptools
+    - cython >=0.29
     run:
     - python
     - asdf >=2.15
